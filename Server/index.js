@@ -1,6 +1,7 @@
 const express = require('express');
 const admin = require('firebase-admin');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 
@@ -29,7 +30,7 @@ const authenticateToken = async (req, res, next) => {
 // Ruta para obtener la configuración de Firebase
 app.get('/api/firebase-config', (req, res) => {
   const config = {
-    apiKey: "AIzaSyDSP-uPfjsK1HyyIZu7bggsRRowAdtaUpg",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "eventwave-ar.firebaseapp.com",
     projectId: "eventwave-ar",
     storageBucket: "eventwave-ar.appspot.com",
